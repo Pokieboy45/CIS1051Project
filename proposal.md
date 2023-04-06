@@ -1,9 +1,9 @@
 # Proposal
 
 ## What will (likely) be the title of your project?
-one of the following:
-Ben's Pokedex
-The Ultimate Pokedex
+One of the following:
+Ben's Pokedex;
+The Ultimate Pokedex;
 A Master's Guide to the Pokedex
 
 ## In just a sentence or two, summarize your project. (E.g., "A website that lets you buy and sell stocks.")
@@ -34,7 +34,7 @@ I THINK I will be able to incorporate the home screen with sufficient drop down 
 
 ### In a sentence (or list of features), define a BEST outcome for your final project. I.e., what do you HOPE to accomplish before the final project's deadline?
 
-I HOPE I can add a way to add issue handling - if the user mispells the pokemon name they should still be able to get to the page they want. In addition I would like to add some kind of fun fact to every entry but that is not necessary. 
+I HOPE I can add a way to add issue handling - if the user mispells the pokemon name they should still be able to get to the page they want. In addition I would like to add some kind of fun fact to every entry but that is not necessary. I would also like to add a tracker to allow the user to save and store their collection for both regular and shiny entries if they are trying to complete the pokedex in Pokemon Home, and allow for them to track a LIVING dex. Once the first tracker is completed, subsequent ones should be easy to implement. 
 
 ## In a paragraph or more, outline your next steps. What new skills will you need to acquire? What topics will you need to research? If working with one of two classmates, who will do what?
 
