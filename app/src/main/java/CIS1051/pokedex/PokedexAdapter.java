@@ -59,11 +59,12 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
 
     PokedexAdapter(Context context) {
         requestQueue = Volley.newRequestQueue(context);
+        loadPokemon();
     }
 
     public void loadPokemon() {
-        String url = "https://pokeapi.co/api/v2/pokemon/?limit=905";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        String Url = "https://pokeapi.co/api/v2/pokemon/?limit=905";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, Url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -71,8 +72,11 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
                     for(int i = 0; i <results.length(); i++) {
                         JSONObject result = results.getJSONObject(i);
                         String name = result.getString("name");
+                        String DispID = Integer.toString(i+1)+".";            // Displays pokedex number
+                        if (DispID.length() < 3) {DispID = DispID + "    ";}    // Spacing makes Names line up
+                        else if (DispID.length() < 4) {DispID = DispID + "  ";} // Spacing makes Names line up
                         pokemon.add(new Pokemon(
-                                name.substring(0,1).toUpperCase() + name.substring(1),
+                                DispID + "\t" + name.substring(0,1).toUpperCase() + name.substring(1),
                                 result.getString("url")
                                 ));
                     }

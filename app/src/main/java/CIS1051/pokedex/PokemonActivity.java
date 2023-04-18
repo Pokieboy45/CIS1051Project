@@ -47,7 +47,8 @@ public class PokemonActivity extends AppCompatActivity {
                 type2TextView.setText("");
 
                 try {
-                    nameTextView.setText(response.getString("name"));
+                    String NAME = response.getString("name");
+                    nameTextView.setText(NAME.substring(0,1).toUpperCase()+NAME.substring(1));
                     numberTextView.setText(String.format("#%03d",response.getInt("id")));
                     JSONArray typeEntries = response.getJSONArray("types");
                     for(int i = 0; i<typeEntries.length(); i++) {
@@ -56,9 +57,9 @@ public class PokemonActivity extends AppCompatActivity {
                         String type = typeEntry.getJSONObject("type").getString("name");
 
                         if (slot == 1 ) {
-                            type1TextView.setText(type);
+                            type1TextView.setText(type.substring(0,1).toUpperCase()+type.substring(1));
                         } else if (slot == 2) {
-                            type2TextView.setText(type);
+                            type2TextView.setText(type.substring(0,1).toUpperCase()+type.substring(1));
                         }
                     }
                 } catch (JSONException e) {

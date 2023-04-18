@@ -9,8 +9,10 @@
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground">
     <TextView
-        android:layout_width="match_parent"
+        android:textSize="16dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:textAlignment="center"
         android:id="@+id/pokedex_row_text_view"/>
 
 </LinearLayout>
