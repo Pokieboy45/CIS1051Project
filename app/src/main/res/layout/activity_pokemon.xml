@@ -12,12 +12,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/pokemon_name"
         android:textAlignment="center"
-        android:textSize="18dp"
-        android:paddingTop="10dp"/>
+        android:textSize="18dp"/>
+    <!--android:paddingTop="10dp"-->
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/PokePic"/>
+        android:id="@+id/PokePic"
+        android:layout_width="match_parent"
+
+        android:layout_height="200dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

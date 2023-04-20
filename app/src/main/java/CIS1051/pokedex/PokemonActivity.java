@@ -1,10 +1,12 @@
 package CIS1051.pokedex;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -12,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +41,7 @@ public class PokemonActivity extends AppCompatActivity {
         type2TextView = findViewById(R.id.pokemon_type2);
 
         load();
+
     }
     public void load(){
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -45,6 +49,8 @@ public class PokemonActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 type1TextView.setText("");
                 type2TextView.setText("");
+
+
 
                 try {
                     String NAME = response.getString("name");
@@ -69,6 +75,8 @@ public class PokemonActivity extends AppCompatActivity {
                 try {
                     String imagURL = response.getJSONObject("sprites").getJSONObject("other").getJSONObject("home").getString("front_default");
                     Log.d("Test?", imagURL);
+                    ImageView spriteView = findViewById(R.id.PokePic);;
+                    Picasso.get().load(imagURL).into(spriteView);
                 } catch (JSONException e) {
                     Log.e("Image", "IMAGE URL ERROR", e);
                 }
