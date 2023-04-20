@@ -51,6 +51,7 @@ public class PokemonActivity extends AppCompatActivity {
                     nameTextView.setText(NAME.substring(0,1).toUpperCase()+NAME.substring(1));
                     numberTextView.setText(String.format("#%03d",response.getInt("id")));
                     JSONArray typeEntries = response.getJSONArray("types");
+
                     for(int i = 0; i<typeEntries.length(); i++) {
                         JSONObject typeEntry = typeEntries.getJSONObject(i);
                         int slot = typeEntry.getInt("slot");
@@ -64,6 +65,12 @@ public class PokemonActivity extends AppCompatActivity {
                     }
                 } catch (JSONException e) {
                     Log.e("CIS1051", "Pokemon Json error", e);
+                }
+                try {
+                    String imagURL = response.getJSONObject("sprites").getJSONObject("other").getJSONObject("home").getString("front_default");
+                    Log.d("Test?", imagURL);
+                } catch (JSONException e) {
+                    Log.e("Image", "IMAGE URL ERROR", e);
                 }
             }
         }, new Response.ErrorListener() {
