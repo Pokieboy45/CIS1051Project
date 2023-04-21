@@ -9,7 +9,7 @@
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground">
     <TextView
-        android:textSize="16dp"
+        android:textSize="24dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:textAlignment="center"

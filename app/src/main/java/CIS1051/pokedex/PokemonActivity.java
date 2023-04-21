@@ -24,7 +24,13 @@ public class PokemonActivity extends AppCompatActivity {
     private TextView nameTextView;
     private TextView numberTextView;
     private TextView typesTextView;
-    //private TextView type2TextView;
+    private TextView hpTextView;
+    private TextView atkTextView;
+    private TextView defTextView;
+    private TextView spatkTextView;
+    private TextView spdefTextView;
+    private TextView spdTextView;
+
     private String url;
     private RequestQueue requestQueue;
 
@@ -38,7 +44,12 @@ public class PokemonActivity extends AppCompatActivity {
         nameTextView = findViewById(R.id.pokemon_name);
         numberTextView = findViewById(R.id.pokemon_number);
         typesTextView = findViewById(R.id.pokemon_types);
-        //type2TextView = findViewById(R.id.pokemon_type2);
+        hpTextView    = findViewById(R.id.pokemon_hp);
+        atkTextView   = findViewById(R.id.pokemon_atk);
+        defTextView   = findViewById(R.id.pokemon_def);
+        spdefTextView = findViewById(R.id.pokemon_spdef);
+        spatkTextView = findViewById(R.id.pokemon_spatk);
+        spdTextView   = findViewById(R.id.pokemon_spd);
 
         load();
 
@@ -72,15 +83,62 @@ public class PokemonActivity extends AppCompatActivity {
                 }
                 try {
                     String imagURL = response.getJSONObject("sprites").getJSONObject("other").getJSONObject("home").getString("front_default");
-                    Log.d("Test?", imagURL);
+                    //Log.d("Test?", imagURL);
                     ImageView spriteView = findViewById(R.id.PokePic);;
                     Picasso.get().load(imagURL).into(spriteView);
                     String shinyURL = response.getJSONObject("sprites").getJSONObject("other").getJSONObject("home").getString("front_shiny");
-                    Log.d("shiny url", shinyURL);
+                    //Log.d("shiny url", shinyURL);
                     ImageView shinyView = findViewById(R.id.PokePicShiny);;
                     Picasso.get().load(shinyURL).into(shinyView);
                 } catch (JSONException e) {
                     Log.e("Image", "IMAGE URL ERROR", e);
+                }
+                try {
+                    //int hp, atk, def, spdef, spatk, spd;
+                    Log.d("test", "ints created");
+                    int hp       = response.getJSONArray("stats").getJSONObject(0).getInt("base_stat");
+                    int atk      = response.getJSONArray("stats").getJSONObject(1).getInt("base_stat");
+                    int def      = response.getJSONArray("stats").getJSONObject(2).getInt("base_stat");
+                    int spatk    = response.getJSONArray("stats").getJSONObject(3).getInt("base_stat");
+                    int spdef    = response.getJSONArray("stats").getJSONObject(4).getInt("base_stat");
+                    int spd      = response.getJSONArray("stats").getJSONObject(5).getInt("base_stat");
+
+                    String str_hp       = Integer.toString(hp);
+                    String str_atk      = Integer.toString(atk);
+                    String str_def      = Integer.toString(def);
+                    String str_spatk    = Integer.toString(spatk);
+                    String str_spdef    = Integer.toString(spdef);
+                    String str_spd      = Integer.toString(spd);
+
+                    if (str_hp.length() <3){
+                        str_hp = " " + str_hp;
+                    }
+                    if (str_atk.length() <3){
+                        str_atk = " " + str_atk;
+                    }
+                    if (str_def.length() <3){
+                        str_def = " " + str_def;
+                    }
+                    if (str_spatk.length() < 3){
+                        str_spatk = " " + str_spatk;
+                    }
+                    if (str_spdef.length() < 3){
+                        str_spdef = " " + str_spdef;
+                    }
+                    if (str_spd.length()   < 3){
+                        str_spd = " " + str_spd;
+                    }
+
+                    hpTextView.setText(   str_hp   );
+                    atkTextView.setText(  str_atk  );
+                    defTextView.setText(  str_def  );
+                    spdefTextView.setText(str_spatk);
+                    spatkTextView.setText(str_spdef);
+                    spdTextView.setText(  str_spd  );
+
+
+                } catch (JSONException e){
+                    Log.e("Stats", "Stats Data ERROR", e);
                 }
             }
         }, new Response.ErrorListener() {
