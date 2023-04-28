@@ -54,7 +54,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hp\t\t\t\tAtk\t\t\t\tDef\t\t\t\tSp.A\t\t\t\tSp.D\t\t\t\tSpd"
+        android:text="Hp\t\t\t\t\tAtk\t\t\t\t\tDef\t\t\tSp.A\t\t\t\tSp.D\t\t\tSpd"
         android:textAlignment="center"
         android:textSize="24dp"
         android:paddingTop="5dp"/>

@@ -73,7 +73,7 @@ public class PokedexAdapter extends RecyclerView.Adapter<PokedexAdapter.PokedexV
                         JSONObject result = results.getJSONObject(i);
                         String name = result.getString("name");
                         String DispID = Integer.toString(i+1)+".";            // Displays pokedex number
-                        if (DispID.length() < 3) {DispID = DispID + "    ";}    // Spacing makes Names line up
+                        if (DispID.length() < 3) {DispID = DispID + "     ";}    // Spacing makes Names line up
                         else if (DispID.length() < 4) {DispID = DispID + "  ";} // Spacing makes Names line up
                         pokemon.add(new Pokemon(
                                 DispID + "\t" + name.substring(0,1).toUpperCase() + name.substring(1),

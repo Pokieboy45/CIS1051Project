@@ -112,25 +112,25 @@ public class PokemonActivity extends AppCompatActivity {
                     String str_spdef    = Integer.toString(spdef);
                     String str_spd      = Integer.toString(spd);
 
-                    if (str_hp.length() <3){str_hp = " " + str_hp;}
-                    if (str_atk.length() <3){str_atk = " " + str_atk;}
-                    if (str_def.length() <3){str_def = " " + str_def;}
-                    if (str_spatk.length() < 3){str_spatk = " " + str_spatk;}
-                    if (str_spdef.length() < 3){str_spdef = " " + str_spdef;}
-                    if (str_spd.length()   < 3){str_spd = " " + str_spd;}
+                    if (str_hp.length()    <3){str_hp    = "  " + str_hp;}
+                    if (str_atk.length()   <3){str_atk   = "  " + str_atk;}
+                    if (str_def.length()   <3){str_def   = "  " + str_def;}
+                    if (str_spatk.length() <3){str_spatk = "  " + str_spatk;}
+                    if (str_spdef.length() <3){str_spdef = "  " + str_spdef;}
+                    if (str_spd.length()   <3){str_spd   = "  " + str_spd;}
 
                     hpTextView.setText(   str_hp   );
                     atkTextView.setText(  str_atk  );
                     defTextView.setText(  str_def  );
-                    spdefTextView.setText(str_spatk);
-                    spatkTextView.setText(str_spdef);
+                    spatkTextView.setText(str_spatk);
+                    spdefTextView.setText(str_spdef);
                     spdTextView.setText(  str_spd  );
 
                     String fight = "";
                     String name1 = response.getString("name");
                     String name = name1.substring(0,1).toUpperCase()+name1.substring(1);
-                    if (atk > spatk+20){fight = "physical";}
-                    else if (spatk > atk+20) {fight = "special";}
+                    if (atk > spatk){fight = "physical";}
+                    else if (spatk > atk) {fight = "special";}
                     else {fight = "mixed";}
                     String tip = name + " is best used as a " + fight + " attacker.";
                     Tooltip.setText(tip);
